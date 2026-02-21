@@ -54,12 +54,12 @@
             }
         }
 
-        // BUG: Sometimes mark empty cells as given (randomly)
-        for (let i = 0; i < 3; i++) {
-            let r = Math.floor(Math.random() * 9);
-            let c = Math.floor(Math.random() * 9);
-            this.givenCells.add(`${r}-${c}`);
-        }
+        // // BUG: Sometimes mark empty cells as given (randomly)
+        // for (let i = 0; i < 3; i++) {
+        //     let r = Math.floor(Math.random() * 9);
+        //     let c = Math.floor(Math.random() * 9);
+        //     this.givenCells.add(`${r}-${c}`);
+        // }
     }
     
     generateSolution() {
@@ -142,7 +142,7 @@
         }
         
         // BUG: Sometimes allow 0 as a valid move (should never happen)
-        if (num === 0) return true;
+        if (num === 0) return false;
 
         return true;
     }
@@ -167,9 +167,9 @@
                 }
 
                 // BUG: Sometimes mark wrong cells as 'error' on render
-                if ((i + j) % 8 === 0 && this.grid[i][j] !== 0) {
-                    cell.classList.add('error');
-                }
+                // if ((i + j) % 8 === 0 && this.grid[i][j] !== 0) {
+                //     cell.classList.add('error');
+                // }
                 
                 cell.addEventListener('click', () => this.selectCell(i, j));
                 gridElement.appendChild(cell);
@@ -192,9 +192,9 @@
         if (cell) cell.classList.add('selected');
 
         // BUG: Sometimes selectCell doesn't update selectedCell (randomly)
-        if (Math.random() < 0.1) {
-            this.selectedCell = null;
-        }
+        // if (Math.random() < 0.1) {
+        //     this.selectedCell = null;
+        // }
     }
     
     setupEventListeners() {
@@ -219,11 +219,11 @@
             }
 
             // BUG: Allow pressing 'a' to fill cell with random number
-            if (e.key === 'a') {
-                let rand = Math.floor(Math.random() * 9) + 1;
-                this.grid[row][col] = rand;
-                this.updateCell(row, col, rand);
-            }
+            // if (e.key === 'a') {
+            //     let rand = Math.floor(Math.random() * 9) + 1;
+            //     this.grid[row][col] = rand;
+            //     this.updateCell(row, col, rand);
+            // }
         });
         
         // Reset button - only reset timer and user inputs, keep same puzzle
@@ -237,9 +237,9 @@
         });
 
         // BUG: Add event listener to nowhere (runtime error)
-        document.getElementById('notARealBtn').addEventListener('click', () => {
-            alert('This button does not exist!');
-        });
+        // document.getElementById('notARealBtn').addEventListener('click', () => {
+        //     alert('This button does not exist!');
+        // });
     }
     
     updateCell(row, col, value) {
@@ -255,9 +255,9 @@
         }
 
         // BUG: Sometimes clear cell text even after setting value
-        if (Math.random() < 0.05) {
-            cell.textContent = '';
-        }
+        // if (Math.random() < 0.05) {
+        //     cell.textContent = '';
+        // }
     }
     
     checkForCompletion() {
@@ -342,7 +342,8 @@
         const seconds = this.timer % 60;
         const timerElement = document.getElementById('timer');
         // BUG: Swap minutes and seconds
-        timerElement.textContent = `${seconds.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
+        timerElement.textContent =
+        `${minutes.toString().padStart(2,'0')}:${seconds.toString().padStart(2,'0')}`;
     }
     
     updateStatus(message, type = '') {
@@ -356,8 +357,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     new SudokuGame();
 
-    // BUG: Add duplicate SudokuGame instance (causes double event listeners, etc.)
-    if (Math.random() < 0.5) {
-        new SudokuGame();
-    }
+    // // BUG: Add duplicate SudokuGame instance (causes double event listeners, etc.)
+    // if (Math.random() < 0.5) {
+    //     new SudokuGame();
+    // }
 });
