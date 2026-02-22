@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sudoku Instructions</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Sudoku Instruction Manual</h1>
+    </header>
+
+    <div class="instructions">
+
+        <h2>⚙️ How It Works</h2>
+        <ul>
+            <li>A complete valid Sudoku solution is generated.</li>
+            <li>Numbers are removed to create a playable puzzle.</li>
+            <li>Users fill in missing numbers using keyboard input.</li>
+            <li>The system checks validity in real-time.</li>
+            <li>The timer tracks how long it takes to solve the puzzle.</li>
+            <li>The game detects completion and displays a success message.</li>
+        </ul>
+
+        <h2>✨ Features</h2>
+        <ul>
+            <li>🧠 Automatic Sudoku puzzle generation</li>
+            <li>🔁 Backtracking algorithm for valid solutions</li>
+            <li>🎲 Randomized puzzle creation</li>
+            <li>⌨️ Keyboard number input (1–9)</li>
+            <li>🛑 Prevention of editing given cells</li>
+            <li>⏱️ Live timer</li>
+            <li>🔄 Reset (same puzzle) option</li>
+            <li>🆕 New Game (fresh puzzle) option</li>
+            <li>❌ Error highlighting for invalid moves</li>
+            <li>🎉 Completion detection with success message</li>
+        </ul>
+
+        <h2>🧮 Core Logic</h2>
+
+        <h3>✔️ Sudoku Generation</h3>
+        <ul>
+            <li>Diagonal 3×3 boxes are filled first.</li>
+            <li>Remaining cells are solved using backtracking recursion.</li>
+            <li>Random numbers are removed to create a playable puzzle.</li>
+        </ul>
+
+        <h3>✔️ Validation Rules</h3>
+        <p>Each move is validated against:</p>
+        <ul>
+            <li>Row constraints</li>
+            <li>Column constraints</li>
+            <li>3×3 sub-grid constraints</li>
+        </ul>
+
+        <br>
+        <button onclick="window.location.href='index.html'" class="btn">
+            ⬅ Back to Game
+        </button>
+
+    </div>
+</div>
+
+</body>
+</html>

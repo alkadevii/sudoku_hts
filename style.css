@@ -207,3 +207,12 @@ h1 {
     color: #333;
 }
 
+
+.instructions {
+    text-align: left;
+    margin-top: 20px;
+}
+
+.instructions ul {
+    margin-left: 20px;
+}
